@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты расчета</title>
+    <link rel="stylesheet" href="resultstylesheet.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Результаты расчета</h1>
+
+        <div id="results" class="result-container"></div>
+
+        <button class="back-button" onclick="window.history.back()">Назад</button>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const resultsDiv = document.getElementById('results');
+
+        if (urlParams.has('error')) {
+            resultsDiv.innerHTML = `
+                <div class="error-message">
+                    Ошибка: ${decodeURIComponent(urlParams.get('error'))}
+                </div>
+            `;
+        } else {
+            resultsDiv.innerHTML = `
+                <div class="result-item">
+                    <span class="result-label">Общая сумма:</span>
+                    <span class="result-value">${urlParams.get('summ')}</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Общий остаток:</span>
+                    <span class="result-value">${urlParams.get('totalRest')}</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Остаток на дату:</span>
+                    <span class="result-value">${urlParams.get('restByDate')}</span>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

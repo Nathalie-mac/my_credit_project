@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Форма для проверки денюжек</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+<div class="form-container">
+  <h1>Введите циферки</h1>
+  <form id="creditForm" action = '/cgi-bin/form_controller.py' method="get">
+    <div class="form-group">
+      <label for="dealID">ID кредита:</label>
+      <input type="text" id="dealID" name="dealID" required>
+      <small class="error-message" id="dealIDError">Введите число</small>
+    </div>
+    <div class="form-group">
+      <label for="dealDate">Дата кредита:</label>
+      <input type="text" id="dealDate" name="dealDate" required>
+      <small class="error-message" id="dateError">Введите дату в формате ММ.ГГГГ</small>
+    </div>
+    <button type="submit" class="calculate-button">Рассчитать</button>
+  </form>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
